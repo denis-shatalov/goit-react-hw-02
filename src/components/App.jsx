@@ -9,7 +9,8 @@ export default function App() {
     const [clicks, setClicks] = useState(() => {
         const saveClicks = localStorage.getItem(`selectedCLicks`);
         if (saveClicks !== null) {
-            return JSON.parse(saveClicks)
+            return saveClicks ? JSON.parse(saveClicks) : { good: 0, neutral: 0, bad: 0 };
+
         }
     })
 
