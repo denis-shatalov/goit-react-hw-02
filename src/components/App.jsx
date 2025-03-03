@@ -28,7 +28,7 @@ export default function App() {
 
 
     useEffect(() => {
-        localStorage.setItem("selectedCLicks", JSON.stringify (clicks))
+        localStorage.setItem(`selectedCLicks`, JSON.stringify (clicks))
     },[clicks])
     
     const totalFeedback = (clicks?.good || 0) + (clicks?.neutral || 0) + (clicks?.bad || 0);
