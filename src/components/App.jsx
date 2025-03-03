@@ -31,16 +31,19 @@ export default function App() {
         localStorage.setItem("selectedCLicks", JSON.stringify (clicks))
     },[clicks])
     
-    const totalFeedback = clicks.good + clicks.neutral + clicks.bad;
+    const totalFeedback = clicks?.good + clicks?.neutral + clicks?.bad || 0;
+
 
     return (
         <div>
 
     <Description></Description>
-            <Options handleClick={handleClick} totalFeedback={totalFeedback}></Options>
-            { totalFeedback > 0 ? <Feedback clicks={clicks} totalFeedback={totalFeedback}></Feedback> : <Notifications></Notifications> }
-    
-            
+            <Options
+                handleClick={handleClick}
+                totalFeedback={totalFeedback}>
+                </Options>
+            {totalFeedback > 0 ? <Feedback clicks={clicks} totalFeedback={totalFeedback}> </Feedback> : <Notifications></Notifications> }
+      
         </div>
 
     )
