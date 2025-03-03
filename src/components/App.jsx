@@ -31,7 +31,8 @@ export default function App() {
         localStorage.setItem("selectedCLicks", JSON.stringify (clicks))
     },[clicks])
     
-    const totalFeedback = clicks?.good + clicks?.neutral + clicks?.bad || 0;
+    const totalFeedback = (clicks?.good || 0) + (clicks?.neutral || 0) + (clicks?.bad || 0);
+
 
 
     return (
